@@ -26,9 +26,9 @@ function ScrollToTop() {
 
   return (
     <Div>
-      <a href=" " className={`${visible ? "block" : "none"}`} onClick={scrollToTop}>
+      <button className={`${visible ? "block" : "none"}`} onClick={scrollToTop}>
         <FaChevronUp />
-      </a>
+      </button>
     </Div>
   );
 };
@@ -39,7 +39,7 @@ const Div = styled.div`
     opacity: 0;
     visibility: hidden;
   }
-  a {
+  button {
     position: fixed;
     bottom: 40px;
     right: 40px;
