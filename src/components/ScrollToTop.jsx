@@ -1,20 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FaChevronUp } from "react-icons/fa";
+
 function ScrollToTop() {
   const [visible, setVisible] = useState(false);
-  window.addEventListener("scroll", () => {
-    window.pageYOffset > 100 ? setVisible(true) : setVisible(false);
-  });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      window.pageYOffset > 100 ? setVisible(true) : setVisible(false);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <Div>
-      <a href="#" className={`${visible ? "block" : "none"}`}>
+      <a href="#" className={`${visible ? "block" : "none"}`} onClick={scrollToTop}>
         <FaChevronUp />
       </a>
     </Div>
   );
-}
+};
 
 const Div = styled.div`
   max-width: 100vw;
