@@ -26,7 +26,7 @@ function ScrollToTop() {
 
   return (
     <Div>
-      <a href="#" className={`${visible ? "block" : "none"}`} onClick={scrollToTop}>
+      <a href=" " className={`${visible ? "block" : "none"}`} onClick={scrollToTop}>
         <FaChevronUp />
       </a>
     </Div>
